@@ -11,10 +11,12 @@
   service: name=docker state=started enabled=true
 
 - name: Check the docker status
-  no_log: true
+  #no_log: false
   shell: >
-    echo -e "GET /info HTTP/1.0\r\n" | nc -U /var/run/docker.sock | tail -n +9 | python -m json.tool
+    echo -e "GET /info HTTP/1.0\r\n" | nc -U /var/run/docker.sock | tail -n +9 | jq
   register: docker_result
+
+- debug: msg="{{ docker_result }}"
 
 - set_fact:
     docker_info: "{{ docker_result.stdout | from_json }}"

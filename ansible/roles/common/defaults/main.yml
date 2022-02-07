@@ -1,12 +1,12 @@
 ---
 
-common_yum_packages:
-  - nc
+common_apt_packages:
+  #- nc
   - nmap
   - htop
   - sysstat
-  - python-pip
-  - bind-utils
+  - python3-pip
+  - bind9-utils
   - jq # Json formatting
   - net-tools
   - unzip

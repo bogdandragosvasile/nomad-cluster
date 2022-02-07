@@ -1,10 +1,7 @@
 ---
-- name: Install epel
-  yum: name=epel-release state=latest
-
 - name: Install required packages
-  yum: name={{ item }} state=latest
-  with_items: "{{ common_yum_packages }}"
+  apt: name={{ item }} state=latest
+  with_items: "{{ common_apt_packages }}"
   tags:
     - packages
 

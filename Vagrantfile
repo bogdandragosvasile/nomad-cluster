@@ -30,7 +30,7 @@ ANSIBLE_GROUPS = {
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-  config.vm.box = "tsihosting/centos7"
+  config.vm.box = "generic/ubuntu2104"
 
   config.vm.provider 'virtualbox' do |v|
     v.linked_clone = true if Vagrant::VERSION =~ /^1.8/
